@@ -97,6 +97,17 @@
     selectorScene.activeCameras.push(camera2);
     camera1.viewport = new BABYLON.Viewport(0.5, 0, 0.5, 1.0);
     camera2.viewport = new BABYLON.Viewport(0, 0, 0.5, 1.0);
+
+    
+    selectorScene.registerBeforeRender(function () {
+        if (engine.getRenderWidth() > engine.getRenderHeight()) {
+            camera1.viewport = new BABYLON.Viewport(0.5, 0, 0.5, 1.0);
+            camera2.viewport = new BABYLON.Viewport(0, 0, 0.5, 1.0);
+        } else {
+            camera1.viewport = new BABYLON.Viewport(0, 0.5, 1.0, 0.5);
+            camera2.viewport = new BABYLON.Viewport(0, 0, 1.0, 0.5);
+        }
+    });
         
     function renderGarage() {
         BABYLON.SceneLoader.ImportMesh("", "https://raw.githubusercontent.com/Wagisigu/babylon/main/Assets/Models/parking_garage_free_download/", "scene.gltf", selectorScene, function (meshes) {
@@ -109,22 +120,6 @@
         BABYLON.SceneLoader.ImportMesh("", "https://raw.githubusercontent.com/Wagisigu/babylon/main/Assets/Models/1953_cadillac_eldorado_convertible/", "scene.gltf", selectorScene, function (meshes) {
             meshes[0].scaling = new BABYLON.Vector3(.002, .002, .002);
             meshes[0].movePOV(locations[0],.3,0);
-            meshes[0].rotate(new BABYLON.Vector3(0,1,0), Math.PI);
-        });
-    };
-
-    function renderCar2() {
-        BABYLON.SceneLoader.ImportMesh("", "https://raw.githubusercontent.com/Wagisigu/babylon/main/Assets/Models/1963_chevrolet_corvette_c2/", "scene.gltf", selectorScene, function (meshes) {
-            meshes[0].movePOV(locations[1],.3,0);
-            meshes[0].scaling = new BABYLON.Vector3(.002, .002, .002);
-            meshes[0].rotate(new BABYLON.Vector3(0,1,0), Math.PI);
-        });
-    };
-
-    function renderCar3() {
-        BABYLON.SceneLoader.ImportMesh("", "https://raw.githubusercontent.com/Wagisigu/babylon/main/Assets/Models/1965_chevrolet_c10/", "scene.gltf", selectorScene, function (meshes) {
-            meshes[0].movePOV(locations[2],1.2,0);
-            meshes[0].scaling = new BABYLON.Vector3(.002, .002, .002);
             meshes[0].rotate(new BABYLON.Vector3(0,1,0), Math.PI);
         });
     };

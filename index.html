@@ -71,7 +71,7 @@
     var camera1 = new BABYLON.ArcRotateCamera("Camera1", Math.PI / 2, Math.PI * 3 / 8, 10, new BABYLON.Vector3(locations[0],.5,-.25), selectorScene);
     camera1.upperBetaLimit = Math.PI / 2.2;
     camera1.lowerBetaLimit = Math.PI / 2.9;
-    camera1.upperRadiusLimit = 6;
+    camera1.upperRadiusLimit = 7;
     camera1.lowerRadiusLimit = 3;
         
     camera1.inputs.attached.pointers.buttons = [0,1];
@@ -83,7 +83,7 @@
     var camera2 = new BABYLON.ArcRotateCamera("Camera2", Math.PI / 2, Math.PI * 3 / 8, 10, new BABYLON.Vector3(locations[3],.5,-.25), selectorScene);
     camera2.upperBetaLimit = Math.PI / 2.2;
     camera2.lowerBetaLimit = Math.PI / 2.9;
-    camera2.upperRadiusLimit = 6;
+    camera2.upperRadiusLimit = 7;
     camera2.lowerRadiusLimit = 3;
 
     camera2.inputs.attached.pointers.buttons = [0,1];
@@ -117,17 +117,15 @@
     };
 
     function renderCar1() {
-        BABYLON.SceneLoader.ImportMesh("", "https://raw.githubusercontent.com/Wagisigu/babylon/main/Assets/Models/1953_cadillac_eldorado_convertible/", "scene.gltf", selectorScene, function (meshes) {
-            meshes[0].scaling = new BABYLON.Vector3(.002, .002, .002);
-            meshes[0].movePOV(locations[0],.3,0);
+        BABYLON.SceneLoader.ImportMesh("", "https://raw.githubusercontent.com/Wagisigu/babylon/main/Assets/Models/2019_chevrolet_corvette_c8_stingray/", "scene.gltf", selectorScene, function (meshes) {
+            meshes[0].movePOV(locations[0],0,0);
             meshes[0].rotate(new BABYLON.Vector3(0,1,0), Math.PI);
         });
     };
 
     function renderCar4() {
-        BABYLON.SceneLoader.ImportMesh("", "https://raw.githubusercontent.com/Wagisigu/babylon/main/Assets/Models/1968_chevrolet_impala/", "scene.gltf", selectorScene, function (meshes) {
-            meshes[0].scaling = new BABYLON.Vector3(.002, .002, .002);
-            meshes[0].movePOV(locations[3],.07,0);
+        BABYLON.SceneLoader.ImportMesh("", "https://raw.githubusercontent.com/Wagisigu/babylon/main/Assets/Models/2017_aston_martin_db11_5.2l_twin-turbo_v12/", "scene.gltf", selectorScene, function (meshes) {
+            meshes[0].movePOV(locations[3],0,0);
             meshes[0].rotate(new BABYLON.Vector3(0,1,0), Math.PI);
         });
     };
